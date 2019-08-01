@@ -1,0 +1,77 @@
+{% load static %}
+<!-- {% load bootstrap4 %} -->
+
+
+<nav>
+<!--  header Login signup nav  ------------>
+<!-- <div class="header" >
+	<div class="container"> -->
+			<!-- <div class="col-md-4 logo_agile">
+					 <h1><a href="{% url 'shop:home' %}"><img src="../../static/images/logincurio.png " alt="" style="width:200px; height:40px "></a></h1> 
+				</div> -->
+		<!-- <ul class="nav navbar-right">
+				<li class="dropdown">
+			      	{% if request.user.is_authenticated %}
+					         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #ffffff">Welcome  {{ request.user.username }}<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+							     <li><a href="/logout" style="color:black">logout</a></li>
+							</ul>
+				</li>
+		</ul>
+					        	{% else %}
+	    <ul>
+		    <li> <a href="/accounts/login"><i aria-hidden="true"></i> Sign In </a></li>
+					          {% endif %}
+		</ul>
+	</div>
+</div> -->
+<!--  //end of header Login signup nav  ----------------------------------------->
+
+
+<!-- start of items navbar ------------------------------------------>
+<div class="ban-top" style=" box-shadow:  0 6px 22px 0 rgba(0, 0, 0, 0.3);">
+	<div class="container" >
+		<div class="top_nav_left">
+			<nav class="navbar navbar-default">
+			  <div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
+				  <ul class="nav navbar-nav menu__list">
+					<li class="active menu__item menu__item--current"><a class="menu__link" href="{% url 'shop:home' %}">Home <span class="sr-only">(current)</span></a></li>
+					<li class=" menu__item"><a class="menu__link" href="{% url 'shop:product_list' %}">Shop</a></li>
+				 <li class=" menu__item"><a class="menu__link" href="{% url 'shop:about' %}">About Honey</a></li>
+				 <li class=" menu__item"><a class="menu__link" href="{% url 'shop:media_list' %}">Blogs</a></li>
+				 <li class=" menu__item"><a class="menu__link" href="{% url 'shop:contact' %}">Contact</a></li>
+              
+					<br>
+						<br>
+        
+                    <div class="button">
+              {% with totail_items=cart|length %}
+                  {% if cart|length > 0 %}
+                      My Shopping Order:
+                     <a  href="{% url 'cart:cart_detail' %}" >
+                          {{ totail_items }} <a class="button" >item {{ totail_items|pluralize }}, Kshs. {{ cart.get_total_price }}</button>
+                        </a>
+                      {% else %}
+                      <h3 > {{ totail_items }} Item {{ totail_items|pluralize }}, Kshs. {{ cart.get_total_price }}  </h3> 
+                  {% endif %}
+              {% endwith %}
+          
+                     </div>
+				</div>
+			  </div>
+		</div>
+		<!-- end of item list navbar --------------------------->
+
+		</nav>
+	<!-- //Modal1 -->
