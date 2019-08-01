@@ -30,7 +30,7 @@ def cart_detail(request):
     cart = Cart(request)
     for item in cart:
         item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'], 'update': True})
-    return render(request, 'cart/detail.html', {'cart': cart_})
+    return render(request, 'cart/detail.html', {'cart': cart})
     
 @csrf_exempt
 def sms_response(request):
