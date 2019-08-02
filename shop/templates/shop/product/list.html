@@ -1,9 +1,14 @@
-{% extends "shop/base.html" %}
+{% extends 'shop/base.html' %}
+
 {% load static %}
+
 {% block title %}
     {% if category %}{{ category.name }} {% else %} Products {% endif %}
 {% endblock %}
+
 {% block content %}
+
+
    <div class="container-fluid">
       <div class="row" style="margin-top: 0%">
         <div class="col-sm-5 " >
@@ -13,12 +18,13 @@
             	<ul class="tree-list-pad">
               <li {% if not category %} class="active"{% endif %}><a href="{% url 'shop:product_list' %}">All</a></li>
             {% for c in categories %}
-             <li {% if category.slug == c.slug %} class="active"{% endif %}>
+
+              <li {% if category.slug == c.slug %} class="active"{% endif %}>
                   <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
               </li>
             {% endfor %}
-          </ul> 
-      </div>
+          </ul>
+          </div>
         </div><!-- /.blog-sidebar -->
         <div class="tab2">
           {% for product in products %}
@@ -31,16 +37,19 @@
                     <div class="inner-men-cart-pro">
                       <a href="{{ product.get_absolute_url }}" class="link-product-add-cart">Quick View</a>
                     </div>
-                  </div>            
+                  </div>
+                  
               </div>
               <div class="item-info-product ">
                 <h4><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h4>
                 <div class="info-product-price">
                   <span class="item_price">Kshs. {{ product.price }}</span>
+
                 </div>
                 <!--  -->
                 <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-                                <a href="{{ product.get_absolute_url }}"><input type="submit" name="submit" value="Add to cart" >
+
+                                <a href="{{ product.get_absolute_url }}"><input type="submit" name="submit" value="Add to cart" class="button" />
                                 </a>
                           </div>
               </div>
@@ -54,11 +63,12 @@
   <div class="row">
       {% if products%}
       {% else %}
-        <h3><strong>Sorry!! </strong>nothing found in selected category .</h3>
+        <h1><strong> BUMMER!! </strong>nothing found in selected category .</h1>
         <h3> <a href="{% url 'shop:contact' %}">Chat</a>  with us so that we find you your prefered Item</h3>
-      
+        <h4>We are dedicated to bring you the best curated <strong>curio merchandise around Africa</strong></h4>
         <h5><a href="{% url 'shop:product_list' %}">continue shopping</a></h5>
-    
+        <br>
+        <img src="../../static/images/logincurio.png" alt="" style="width:150px; height:40px ">
       {% endif %}
   
     </div>

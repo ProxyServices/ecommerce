@@ -42,7 +42,9 @@ class Product(models.Model):
 class Media(models.Model):
     name = models.CharField(max_length=100, db_index=True)
     slug = models.SlugField(max_length=100, db_index=True)
-    # image = models.ImageField(blank=True, null=True, upload_to='shop/media')
+    image = models.ImageField(upload_to='shop/blogmedia/%Y/%m/%d', blank=True)
+    
+   
   
       
     class Meta:
